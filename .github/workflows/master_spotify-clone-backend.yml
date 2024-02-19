@@ -37,7 +37,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: impradhyumn
+      id-token: write #This is required for requesting the JWT
   
     steps:
       - name: Download artifact from build job
@@ -48,9 +48,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B93D2FE19A2541219B7452E64EB30477 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2865782FCE0C40338B348B0846E003EE }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F517CE21CC834EA09CC234DEDA9E8DEA }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_58E97975D2E446CE9E0932CA9F489AB0 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_077C8A1CA1254AB69047D550E458FC47 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B1C0F5B7E2A44BA19C87E584783F2035 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
