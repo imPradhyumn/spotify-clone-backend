@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EntityScan("com.spotifyclone.entities")
-@EnableJpaRepositories("com.spotifyclone.*")
-@ComponentScan(basePackages = {"com.spotifyclone.*"})
+@EnableJpaRepositories("com.spotifyclone.repositories")
+@ComponentScan(basePackages = {"com.spotifyclone.services"})
 public class SpotifyCloneApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpotifyCloneApplication.class, args);

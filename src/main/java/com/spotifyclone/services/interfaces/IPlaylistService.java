@@ -1,7 +1,9 @@
 package com.spotifyclone.services.interfaces;
 
 import com.spotifyclone.entities.Playlist;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface IPlaylistService {
 
     public Playlist createPlaylist(String playlistName);

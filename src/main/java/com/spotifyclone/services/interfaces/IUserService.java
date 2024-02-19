@@ -5,9 +5,11 @@ import com.spotifyclone.entities.User;
 import com.spotifyclone.error.AuthenticationFailedException;
 import com.spotifyclone.error.UserAlreadyRegisteredException;
 import com.spotifyclone.error.UserNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface IUserService {
 
     public User getUser(String userId);
