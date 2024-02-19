@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/spotify-clone-0.0.1-SNAPSHOT.jar
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/spotify-clone-0.0.1-SNAPSHOT.jar
