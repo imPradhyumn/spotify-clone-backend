@@ -16,9 +16,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @CrossOrigin(origins = "*")
-public class UserContoller {
+public class UserController {
     @Autowired
     private IUserService userService;
+
+    @GetMapping("/")
+    public String hello() {
+        return "hello world!";
+    }
 
     @PostMapping("/login")
     public ResponseEntity<User> authenticateUser(@RequestBody AuthRequest authCredentials) throws UserNotFoundException, AuthenticationFailedException {
