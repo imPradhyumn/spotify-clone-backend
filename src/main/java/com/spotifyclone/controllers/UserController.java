@@ -1,7 +1,7 @@
 package com.spotifyclone.controllers;
 
 import com.spotifyclone.entities.AuthRequest;
-import com.spotifyclone.entities.Song;
+import com.spotifyclone.entities.Playlist;
 import com.spotifyclone.entities.User;
 import com.spotifyclone.error.AuthenticationFailedException;
 import com.spotifyclone.error.UserAlreadyRegisteredException;
@@ -39,9 +39,9 @@ public class UserController {
         return userService.addUser(user);
     }
 
-    @GetMapping("/get-playlist/{id}")
-    public List<Song> getUserPlaylist(@PathVariable("userId") long userId) {
-        return userService.getUserPlaylist(userId);
+    @GetMapping("/get-playlist/{userId}")
+    public List<Playlist> getUserPlaylists(@PathVariable("userId") long userId) {
+        return userService.getUserPlaylists(userId);
     }
 
 }

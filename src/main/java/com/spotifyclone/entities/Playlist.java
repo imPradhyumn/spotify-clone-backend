@@ -1,5 +1,6 @@
 package com.spotifyclone.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,5 +20,9 @@ public class Playlist {
     private String name;
     @OneToMany
     private List<Song> songs;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }

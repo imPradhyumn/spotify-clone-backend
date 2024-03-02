@@ -1,10 +1,13 @@
 package com.spotifyclone.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,11 +20,9 @@ public class User {
     private long id;
 
     @Column(nullable = false)
-    private String firstName;
+    private String name;
 
-    private String lastName;
-
-    @Column(name = "user_name", nullable = false, unique = true)
+    @Column(name = "user_name", unique = true)
     private String userName;
 
     @Column(nullable = false, unique = true)
@@ -30,10 +31,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToOne
-    private Playlist playlist;
-
-    public String getFullName() {
-        return this.firstName + " " + this.lastName;
-    }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @JsonIgnore
+    private List<Playlist> playlists;
 }
